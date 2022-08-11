@@ -1,0 +1,1010 @@
+%	-------------------------------------------------------------------------------
+% 
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%	-------------------------------------------------------------------------------
+
+	\documentclass[12pt, a4paper, oneside]{book}
+%	\documentclass[12pt, a4paper, landscape, oneside]{book}
+
+		% --------------------------------- 페이지 스타일 지정
+		\usepackage{geometry}
+%		\geometry{landscape=true	}
+		\geometry{top 		=10em}
+		\geometry{bottom	=10em}
+		\geometry{left		=8em}
+		\geometry{right		=8em}
+		\geometry{headheight	=4em} % 머리말 설치 높이
+		\geometry{headsep		=2em} % 머리말의 본문과의 띠우기 크기
+		\geometry{footskip		=4em} % 꼬리말의 본문과의 띠우기 크기
+% 		\geometry{showframe}
+	
+%		paperwidth 	= left + width + right (1)
+%		paperheight 	= top + height + bottom (2)
+%		width 		= textwidth (+ marginparsep + marginparwidth) (3)
+%		height 		= textheight (+ headheight + headsep + footskip) (4)
+
+
+
+		%	===================================================================
+		%	package
+		%	===================================================================
+%			\usepackage[hangul]{kotex}				% 한글 사용
+			\usepackage{kotex}						% 한글 사용
+			\usepackage[unicode]{hyperref}			% 한글 하이퍼링크 사용
+			\usepackage{amssymb,amsfonts,amsmath}	% 수학 수식 사용
+
+			\usepackage{scrextend}					% 
+		
+			\usepackage{enumerate}			%
+			\usepackage{enumitem}			%
+			\usepackage{tablists}			%	수학문제의 보기 등을 표현하는데 사용
+										%	tabenum
+
+
+		% ------------------------------ table 
+			\usepackage{longtable}			%
+			\usepackage{tabularx}			%
+			\usepackage{tabu}				%
+
+
+
+		% ------------------------------ 
+			\usepackage{setspace}			%
+			\usepackage{booktabs}			% table
+			\usepackage{color}				%
+			\usepackage{multirow}			%
+			\usepackage{boxedminipage}		% 미니 페이지
+			\usepackage[pdftex]{graphicx}	% 그림 사용
+			\usepackage[final]{pdfpages}	% pdf 사용
+			\usepackage{framed}			% pdf 사용
+			
+			\usepackage{fix-cm}	
+			\usepackage[english]{babel}
+	
+			\usepackage{tikz}%
+			\usetikzlibrary{arrows,positioning,shapes}
+			%\usetikzlibrary{positioning}
+			
+
+
+		% Package --------------------------------- 
+
+			\usepackage{tablists}				%
+
+
+
+		% Package --------------------------------- 
+
+			\usepackage{exsheets}				%
+
+			\SetupExSheets{solution/print=true}
+			\SetupExSheets{question/type=exam}
+			\SetupExSheets[points]{name=point,name-plural=points}
+
+
+		% --------------------------------- 페이지 스타일 지정
+
+		\usepackage[Sonny]		{fncychap}
+
+			\makeatletter
+			\ChNameVar	{\Large\bf}
+			\ChNumVar	{\Huge\bf}
+			\ChTitleVar		{\Large\bf}
+			\ChRuleWidth	{0.5pt}
+			\makeatother
+
+%		\usepackage[Lenny]		{fncychap}
+%		\usepackage[Glenn]		{fncychap}
+%		\usepackage[Conny]		{fncychap}
+%		\usepackage[Rejne]		{fncychap}
+%		\usepackage[Bjarne]		{fncychap}
+%		\usepackage[Bjornstrup]{fncychap}
+
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+		\fancyhead{} % clear all fields
+		\fancyhead[LO]{\footnotesize \leftmark}
+		\fancyhead[RE]{\footnotesize \leftmark}
+		\fancyfoot{} % clear all fields
+		\fancyfoot[LE,RO]{\large \thepage}
+		%\fancyfoot[CO,CE]{\empty}
+		\renewcommand{\headrulewidth}{1.0pt}
+		\renewcommand{\footrulewidth}{0.4pt}
+	
+	
+	
+
+	
+		%	=======================================================================================
+		% 	tritlesec package
+		% 	
+		% 	
+		% 	------------------------------------------------------------------ section 스타일 지정
+	
+			\usepackage{titlesec}
+		
+		% 	----------------------------------------------------------------- section 글자 모양 설정
+			\titleformat*{\section}					{\large\bfseries}
+			\titleformat*{\subsection}				{\normalsize\bfseries}
+			\titleformat*{\subsubsection}			{\normalsize\bfseries}
+			\titleformat*{\paragraph}				{\normalsize\bfseries}
+			\titleformat*{\subparagraph}				{\normalsize\bfseries}
+	
+		% 	----------------------------------------------------------------- section 번호 설정
+%			\renewcommand{\thepart}				{\arabic{part}.}
+			\renewcommand{\thepart}				{}
+%			\renewcommand{\thechapter}			{\arabic{chapter}.}
+			\renewcommand{\thechapter}			{}
+			\renewcommand{\thesection}			{\arabic{section}.}
+			\renewcommand{\thesubsection}			{\thesection\arabic{subsection}.}
+			\renewcommand{\thesubsubsection}		{\thesubsection\arabic{subsubsection}}
+
+		% 	----------------------------------------------------------------- section 페이지 나누기 설정
+			\let\stdsection\section
+			\renewcommand\section{\newpage\stdsection}
+
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	\titlespacing*{commandi} {left} {before-sep} {after-sep} [right-sep]		
+		% 	left
+		%	before-sep		:  수직 전 간격
+		% 	after-sep	 	:  수직으로 후 간격
+		%	right-sep
+
+			\titlespacing*{\section} 			{0pt}{1.0em}{1.0em}
+			\titlespacing*{\subsection}	  		{0ex}{1.0em}{1.0em}
+			\titlespacing*{\subsubsection}		{0ex}{1.0em}{1.0em}
+			\titlespacing*{\paragraph}			{0em}{1.5em}{1.0em}
+			\titlespacing*{\subparagraph}		{4em}{1.0em}{1.0em}
+	
+		%	\titlespacing*{\section} 			{0pt}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\subsection}	  		{0ex}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\subsubsection}		{6ex}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\paragraph}			{6pt}{0.0\baselineskip}{0.0\baselineskip}
+	
+
+		% --------------------------------- recommend		섹션별 페이지 상단 여백
+		\newcommand{\SectionMargin}			{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSectionMargin}		{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSubSectionMargin}		{\newpage  \null \vskip 2cm}
+
+
+	
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	toc 설정  - table of contents
+		% 	
+		% 	
+		% 	----------------------------------------------------------------  문서 기본 사항 설정
+			\setcounter{secnumdepth}{3} 		% 문단 번호 깊이
+			\setcounter{tocdepth}{1} 			% 문단 번호 깊이 - 목차 출력시 출력 범위
+
+			\setlength{\parindent}{0cm} 		% 문서 들여 쓰기를 하지 않는다.
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	mini toc 설정
+		% 	
+		% 	
+		% 	--------------------------------------------------------- 장의 목차  minitoc package
+			\usepackage{minitoc}
+
+			\setcounter{minitocdepth}{1}    	%  Show until subsubsections in minitoc
+%			\setlength{\mtcindent}{12pt} 	% default 24pt
+			\setlength{\mtcindent}{24pt} 	% default 24pt
+
+		% 	--------------------------------------------------------- part toc
+		%	\setcounter{parttocdepth}{2} 	%  default
+			\setcounter{parttocdepth}{0}
+		%	\setlength{\ptcindent}{0em}		%  default  목차 내용 들여 쓰기
+			\setlength{\ptcindent}{0em}         
+
+
+		% 	--------------------------------------------------------- section toc
+
+			\renewcommand{\ptcfont}{\normalsize\rm} 		%  default
+			\renewcommand{\ptcCfont}{\normalsize\bf} 	%  default
+			\renewcommand{\ptcSfont}{\normalsize\rm} 	%  default
+
+
+		%	=======================================================================================
+		% 	tocloft package
+		% 	
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\usepackage{tocloft}
+
+		% 	------------------------------------------ 목차의 내어쓰기 즉 왼쪽 마진 설정
+			\setlength{\cftsecindent}{2em}			%  section
+
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\setlength{\cftsecnumwidth}{2em}		%  section
+		
+% 	============================================================================== itemi Global setting
+
+
+	%	-------------------------------------------------------------------------------
+	%		Vertical spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[itemize]{topsep=0.0em}			% 상단의 여유치
+		\setlist[itemize]{partopsep=0.0em}			% 
+		\setlist[itemize]{parsep=0.0em}			% 
+%		\setlist[itemize]{itemsep=0.0em}			% 
+		\setlist[itemize]{noitemsep}				% 
+		
+	%	-------------------------------------------------------------------------------
+	%		Horizontal spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[itemize]{labelwidth=1em}			%  라벨의 표시 폭
+		\setlist[itemize]{leftmargin=8em}			%  본문 까지의 왼쪽 여백  - 4em
+		\setlist[itemize]{labelsep=3em} 			%  본문에서 라벨까지의 거리 -  3em
+		\setlist[itemize]{rightmargin=0em}			% 오른쪽 여백  - 4em
+		\setlist[itemize]{itemindent=0em} 			% 점 내민 거리 label sep 과 같은면 점위치 까지 내민다
+		\setlist[itemize]{listparindent=3em}		% 본문 드려쓰기 간격
+
+
+		\setlist[itemize]{ topsep=0.0em, 			%  상단의 여유치
+					partopsep=0.0em, 		%  
+					parsep=0.0em, 
+					itemsep=0.0em, 
+					labelwidth=1em, 
+					leftmargin=2.5em,
+					labelsep=2em,			%  본문에서 라벨 까지의 거리
+					rightmargin=0em,		% 오른쪽 여백  - 4em
+					itemindent=0em, 		% 점 내민 거리 label sep 과 같은면 점위치 까지 내민다
+					listparindent=0em}		% 본문 드려쓰기 간격
+
+%		\begin{itemize}
+
+	%	-------------------------------------------------------------------------------
+	%		Label
+	%	-------------------------------------------------------------------------------
+		\renewcommand{\labelitemi}{$\bullet$}
+		\renewcommand{\labelitemii}{$\bullet$}
+%		\renewcommand{\labelitemii}{$\cdot$}
+		\renewcommand{\labelitemiii}{$\diamond$}
+		\renewcommand{\labelitemiv}{$\ast$}		
+
+%		 \renewcommand{\labelitemi}{$\blacksquare$}   	% 사각형 - 찬것
+%		 \renewcommand\labelitemii{$\square$}		% 사각형 - 빈것	
+			
+
+
+		
+		% --------------------------------- 	줄간격 설정
+		\doublespace
+%		\onehalfspace
+%		\singlespace
+		
+		
+
+			
+			
+		\usepackage[parfill]{parskip}
+		\setlength{\parskip}{1em}
+		
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+	
+			\dominitoc
+			
+
+			\title{ 관세음보살 42진수 진언 }
+			\author{ 김대희}
+			\date{2020년  5월 15일}
+			\maketitle
+
+
+			\tableofcontents
+%			\listoffigures
+%			\listoftables
+
+
+
+%			\begin{itemize}
+%			\item []
+%			\end{itemize}
+
+
+
+% ================================================= chapter 	====================
+	\chapter{관세음보살 42수주의 유래}
+
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+
+
+\section{ 관세음보살 42수주의 유래 }
+
+
+ 『불설천수천안관세음보살광대원만무애대비심다라니경』에서는 관세음보살의 40수만 열거되고 있으며,  실제로 그 각각의 손에 따른 진언은 나오지 않는다.
+ 그러나 『천수천안관세음보살대비심다라니』에는 41가지의 손 도상과 함께 그에 따라 다양한 진언이 갖추어져 있다.
+ 하지만 『천수천안관세음보살대비심다라니』​의 열거 순서와 일치하는 것도 아니다.
+ 후대에 이르러서 이러한 것들을 종합하여 관세음보살의 42수주로 정리되었다.
+
+
+ 42수주는 천수대비주와는 내용이 다르며, 구체적인 경우에 따른 세부적인 42가지 진언을 설하고 있다.
+ 예컨대 이런 경우에는 이런 진언을 외우고, 저런 경우에는 저런 진언을 외우라는 식으로 매우 구체적인 상황을 열거하고 있는데, 그것이 모두 42가지이다.
+
+ 천수대비주[신묘장구대다라니]는 총주이기 때문에 42수주의 공덕을 모두 한 데 갈무리 하고 있다.
+ 하지만 관세음보살 42수주는 중생 저마다 소원과 인연, 그리고 근기 등에 따라서 간단히 염송할 수 있도록 구체적인 필요를 구분하여 세세히 충족시킬 수 있도록 제시한 것이다.
+ 따라서 항상 42가지 주문을 모두 외우는 것이 아니다. 
+ 42수주 가운데 자신이 꼭 필요한 경우의 진언을 골라서 그 목적과 때에 따라 온 마음을 다해서 염송하는 것이 기본이다.
+
+
+ 42수주는 예로부터 매우 간명하지만 미묘한 효험이 있는 진언이므로 누구든지 쉽게 혼자서도 실천할 수 있을 것이다.
+ 예컨대 입시를 앞둔 수험생이라면 "옴 아하라 살바미냐 다라 바니제 사바하"라는 37수 관세음보살 보경수 진언을 시시때때로 염송하는 것이 좋을 것이다.
+ 심리적 안정은 물론이고, 정신 집중에도 탁월한 효험을 볼 것이다.
+
+ 이처럼 관세음보살의 42수 진언은 누구든지 언제 어디서나 가장 간단히 할 수 있는 진언 수행이기 때문에 보편적인 기도 수행으로 잘 알려져 있다.
+ 각자 자신의 상황과 소원에 맞는 수주를 때에 따라 골라서 염송한다면 가장 신속하게 관세음보살의 가피 영험을 체험할 수 있는 지름길 수행법이 될 것이다.
+ 이러한 점에서 볼 때, 일상생활이 바쁘면 바쁠수록 성취하고 싶은 욕망도 커져만 가는 현대인들에게 관세음보살의 42수 진언 수행은 매우 적절한 수행법이 될 것이다.
+
+                 -수락산 도안사[혜자 스님] 관세음보살 사십이수주 독송 기도집 中-
+
+
+
+
+
+출처: https://buddha-mind.tistory.com/120 [부처님 마음 卍 불교의 향기]
+
+
+
+% ------------------------------------------------------------------------------ section
+	\section{ 불설 천수천안 관세음보살 광대원만무애대비심 다라니경 }
+
+
+
+% ------------------------------------------------------------------------------ section
+	\section{ 천수천안 관세음보살 대비심 다라니 }
+
+
+
+% ================================================= chapter 	====================
+	\chapter{관세음보살 42수주 해설 }
+
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+
+% ------------------------------------------------------------------------------ section
+	\section{ 관세음보살 42수주 해설}
+
+
+
+% ------------------------------------------------------------------------------ section
+	\section{ 옴 }
+
+
+% ------------------------------------------------------------------------------ section
+	\section{ 훔 }
+
+
+
+% ------------------------------------------------------------------------------ section
+	\section{ 바탁 }
+
+
+
+% ------------------------------------------------------------------------------ section
+	\section{ 사바하 }
+
+
+
+
+
+
+% ================================================= chapter 	====================
+	\chapter{관세음보살 42수주}
+
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+
+
+\section{1수. 관세음보살 여의주수 진언}
+
+			\begin{itemize}
+			\item 물질적 풍요로움과 안락한 생활을 원할 때
+			\item 옴 바아라 바다라 훔 바탁
+			\item 범어 - 옴 봐즈라 봐따라 훔파트
+			\item Om vajra vatara humphat
+			\end{itemize}
+
+
+
+
+
+\section{2수. 관세음보살 견색수 진언 }
+
+			\begin{itemize}
+			\item 온갖 불안 속에서 마음이 편해지기를 원할 때
+			\item 옴 기니라나 모나라 훔 바탁
+			\item 범어 - 옴 끼를라라 모드라 훔파트 
+			\item Om kirlara modra humphat
+			\end{itemize}
+
+
+
+
+
+\section{3수. 관세음보살 보발수 진언 }
+
+			\begin{itemize}
+			\item 온갖 아픈 병이 낫기를 원할 때
+			\item 옴 기리기리 바라아 훔 바탁
+			\item 범어 - 옴 끼르끼르 바즈라 훔파트
+			\item Om kirkir vajra humhpat
+			\end{itemize}
+
+
+
+
+\section{4수. 관세음보살 보검수 진언}
+
+			\begin{itemize}
+			\item 모든 잡귀들을 항복시키기를 원할 때
+			\item 옴 제세제야 도미니 도제 삿다야 훔 바탁
+			\item 범어 - 옴 떼세떼자 뚜뷔니 뚜데 사따야 훔파트 
+			\item Om teseteja tuvini tude satdhaya humphat
+			\end{itemize}
+
+
+
+
+
+\section{5수. 관세음보살 발절라수 진언}
+
+			\begin{itemize}
+			\item 모든 잡귀들을 항복 시키기를 원할 때
+			\item 옴 이베이베 이파야 마하 시리예 사바하
+			\item 범어 - 옴 디베디베 디뺘 마하 스례(스르예) 스바하
+			\item Om dibhedibhe dipya maha srye svahat
+			\end{itemize}
+
+
+
+ 
+
+
+\section{6수. 관세음보살 금강저수 진언}
+
+			\begin{itemize}
+			\item 모든 적을 항복시키기를 원할 때
+			\item 옴 바아라 아니바라 닙다야 사바하
+			\item 범어 - 옴 바즈라 그니 쁘라 딥따야 스바하
+			\item Om vajra gni pra diptaya svaha
+			\end{itemize}
+
+
+
+
+
+\section{7수. 관세음보살 시무외수 진언}
+
+			\begin{itemize}
+			\item 모든 적을 항복시키기를 원할 때
+			\item 옴 아라나야 훔 바탁
+			\item 범어 - 옴 즈라나야 훔파트
+			\item Om jranaya humphat
+			\end{itemize}
+
+
+
+
+
+\section{8수. 관세음보살 일정마니수 진언}
+
+			\begin{itemize}
+			\item 눈이 어두워져 밝은 눈을 갖기를 원할 때
+			\item 옴 도비가야 도비바라 바리니 사바하
+			\item 범어 - 옴 뚜삐까야 뚜삐뿌라 바르디 스바하
+			\item Om tupikaya tupipra vardi svaha
+			\end{itemize}
+
+
+
+
+
+\section{9수. 관세음보살 월정마니수 진언}
+
+			\begin{itemize}
+			\item 심한 열병을 앓아서 낫기를 원할 때
+			\item 옴 소싯지 아리 사바하
+			\item 범어 - 옴 슈시디 그르 스바하
+			\item Om susidhi gr svaha
+			\end{itemize}
+
+
+
+
+
+\section{10수. 관세음보살 보궁수 진언}
+
+			\begin{itemize}
+			\item 승진하거나 높은 관직을 얻기를 원할 때
+			\item 옴 아지미례 사바하
+			\item 범어 - 옴 아차(짜)비레 스바하
+			\item Om acavire svaha 
+			\end{itemize}
+
+
+
+ 
+
+
+\section{11수. 관세음보살 보전수 진언 }
+
+			\begin{itemize}
+			\item 빨리 착하고 좋은 친구들을 많이 만나기를 원할 때
+			\item 옴 가마라 사바하
+			\item 범어 - 옴 까마라 스바하
+			\item Om kamala svaha
+			\end{itemize}
+
+
+
+
+
+\section{12수. 관세음보살 양류지수 진언}
+
+			\begin{itemize}
+			\item 몸에 생긴 갖가지 병이 모두 낫기를 원할 때
+			\item 옴 소싯지 가리바리 다남타 목다에 바아라 바아라 반다 하나하나 훔 바탁
+			\item 범어 - 옴 슈싯디 까르바르타남타 묵따예 바즈라 바즈라 반다 하나하나 훔파트
+			\item Om susitdhi karvartanamta muktaye vajra vajra vandha hanahana humphat
+			\end{itemize}
+
+
+
+
+
+\section{13수. 관세음보살 백불수 진언}
+
+			\begin{itemize}
+			\item 모든 나쁜 장애와 곤란을 없애기를 원할 때
+			\item 옴 바나미니 바나바제 모하야 아아 모하니 사바하
+			\item 범어 - 옴 빠드미니 바가바떼 모하야 자가 모하니 스바하
+			\item Om padmini bhagavate mohaya jaga mohani svaha
+			\end{itemize}
+
+
+
+
+
+\section{14수. 관세음보살 보병수 진언}
+
+			\begin{itemize}
+			\item 모든 가족과 친족들이 원만하게 화합하기를 원할 때
+			\item 옴 아례 삼만염 사바하
+			\item 범어 - 옴 그레 삼맘얌 스바하(스와하)
+			\item Om gre sammamyam svaha
+			\end{itemize}
+
+
+
+
+
+\section{15수. 관세음보살 방패수 진언}
+
+			\begin{itemize}
+			\item 어떤 동물이나 맹수로부터 피해를 당하지 않기를 원할 때
+			\item 옴 약삼나나야 전나라 다노발야 바사바사 사바하
+			\item 범어 - 옴 야크삼 나다야 쉬찬드라 다두빠르야빠샤 빠샤 스바하
+			\item Om yaksam nadaya scandra dhaduparyapasa pasa svaha
+			\end{itemize}
+
+
+
+ 
+
+
+\section{16수. 관세음보살 월부수 진언}
+
+			\begin{itemize}
+			\item 언제 어디서나 관재를 당하지 않기를 원할 때
+			\item 옴 미라야 미라야 사바하
+			\item 범어 - 옴 미라야 미라야 스바하
+			\item Om miraya miraya svaha
+			\end{itemize}
+
+
+
+
+
+\section{17수. 관세음보살 옥환수 진언}
+
+			\begin{itemize}
+			\item 남녀불문하고 좋은 친구나 동료를 갖고자 원할 때
+			\item 옴 바나맘 미라야 사바하
+			\item 범어 - 옴 빠드맘 미라야 스바하(스와하)
+			\item Om padmam miraya svaha
+			\end{itemize}
+
+
+
+
+
+\section{18수. 관세음보살 백련화수 진언}
+
+			\begin{itemize}
+			\item 수많은 공을 세우고 온갖 공덕을 이루기를 원할 때
+			\item 옴 바아라 미라야 사바하
+			\item 범어 - 옴 바(와)즈라 미나야 스바하
+			\item Om vajra minaya svaha
+			\end{itemize}
+
+
+
+
+
+\section{19수. 관세음보살 청련화수 진언}
+
+			\begin{itemize}
+			\item 다음 세상에 서방정토에서 태어나기를 원할 때
+			\item 옴 기리기리 바아라 불반다 훔 바탁
+			\item 범어 - 옴 끼(키)르끼(키)르 바(와)즈라 부르반다 훔파트
+			\item Om kirkir vajra bhurvandha humphat
+			\end{itemize}
+
+
+
+
+
+\section{20수. 관세음보살 보경수 진언}
+
+			\begin{itemize}
+			\item 높고 큰 지혜를 얻고자 원할 때
+			\item 옴 미보라 나락사 바라아 만다라 훔 바탁
+			\item 범어 - 옴 비스푸라다 락사 바즈라 만달라 훔파트
+			\item Om visphurada raksa vajra mandhala humphat
+			\end{itemize}
+
+
+
+ 
+
+
+\section{21수. 관세음보살 자련화수 진언}
+
+			\begin{itemize}
+			\item 부처님과 보살님을 친견하기를 원할 때
+			\item 옴 사라사라 바아라 가라 훔 바탁
+			\item 범어 - 옴 싸라싸라 바즈라 까라훔파트
+			\item Om sarasara vajra karahumphat
+			\end{itemize}
+
+
+
+
+
+\section{22수. 관세음보살 보협수 진언}
+
+			\begin{itemize}
+			\item 땅속 깊이 묻혀 있는 온갖 보물을 얻고자 원할 때
+			\item 옴 바아라 바사가리 아나맘나 훔
+			\item 범어 - 옴 바즈라 빠사까리 가나맘라 훔
+			\item Om vajra pasakari ganamamra hum
+			\end{itemize}
+
+
+
+
+
+\section{23수. 관세음보살 오색운수 진언}
+
+			\begin{itemize}
+			\item 한시바삐 불도를 성취하여 깨달음을 얻고자 원할 때
+			\item 옴 바아라 가리라타 맘타
+			\item 범어 - 옴 바즈라 까리라따 맘따
+			\item Om vajra karirata mamta
+			\end{itemize}
+
+
+
+
+
+\section{24수. 관세음보살 군지수 진언}
+
+			\begin{itemize}
+			\item 다음 세상에는 천신이 되어 하늘에서 살고자 원할 때
+			\item 옴 바아라 서가로타 맘타
+			\item 범어 - 옴 바즈라 세카라루타 맘타
+			\item Om vajra sekhararuta mamta
+			\end{itemize}
+
+
+
+\section{25수. 관세음보살 홍련화수 진언}
+
+	 		\begin{itemize}
+			\item 다음 세상에는 사람 몸 받지 않기를 원할 때
+			\item 옴 상아례 사바하
+			\item 범어 - 옴 샴그레 스바하
+			\item Om samgre svaha
+			\end{itemize}
+
+
+
+
+
+\section{26수. 관세음보살 보극수 진언}
+
+	 		\begin{itemize}
+			\item 경쟁 상대나 원수의 힘을 없애고자 원할 때
+			\item 옴 삼매야 기니하리 훔 바탁
+			\item 범어 - 옴 삼마이야 끼니 하르 흠파트
+			\item Om sammaiya kini har humphat
+			\end{itemize}
+
+
+
+
+
+\section{27수. 관세음보살수 보라수 진언}
+
+	 		\begin{itemize}
+			\item 언제 어디서나 호법신장들이 호위를 하기를 원할 때
+			\item 옴 상아례 마하 삼만염 사바하
+			\item 범어 - 옴 삼그레 마하 삼마얌 스바하
+			\item Om samgre maha sammayam svaha
+			\end{itemize}
+
+
+
+
+
+\section{28수. 관세음보살 촉루장수 진언}
+
+	 		\begin{itemize}
+			\item 어떤 잡신들의 농간에도 휘둘리지 않고 뜻대로 지배하기를 원할 때
+			\item 옴 도나 바아라 햑
+			\item 범어 - 옴 두나 바즈라 하
+			\item Om dhuna vajra hah
+			\end{itemize}
+
+
+
+
+
+\section{29수. 관세음보살 수주수 진언}
+
+	 		\begin{itemize}
+			\item 빨리 부처님께서 도와 주시기를 원할 때
+			\item 나모라 다나다라 야야 옴 아나바제 미아예 싯디 싯달제 사바하
+			\item 범어 - 나모 라뜨나뜨라야야 옴 아나바떼 비자야예 싣디싣다르테 스바하
+			\item Namo ratnatrayaya om anabhate vijayaye sidhisiddharthe svaha
+			\end{itemize}
+
+
+
+
+
+\section{30수. 관세음보살 보탁수 진언}
+
+	 		\begin{itemize}
+			\item 아름답고 뛰어난 목소리 갖기를 원할 때
+			\item 나모 바나맘 바나예 옴 아미리 담암베시리예 시리탐리니 사바하
+			\item 범어 - 나모 빠드맘 빠나예 옴 암르땅감베 쉬르예 쉬르 땅르니 스바하
+			\item namo padmam panaye om amrtamgambhe srye sr tamrni svaha
+			\end{itemize}
+
+
+
+ 
+
+
+\section{31수. 관세음보살 보인수 진언}
+
+	 		\begin{itemize}
+			\item 뛰어난 말솜씨와 글솜씨 갖기를 원할 때
+			\item 옴 바아라녜 담아예 사바하
+			\item 범어 - 옴 바즈라 네탐 자예 스바하(스와하)
+			\item Om vajra netam jaye svaha
+			\end{itemize}
+
+
+
+
+
+\section{32수. 관세음보살 구시철구수 진언}
+
+	 		\begin{itemize}
+			\item 좋은 신들과 용왕이 보호하기를 원할 때
+			\item 옴 아가로 다라가라 미사예 나모 사바하
+			\item 범어 - 옴 아크로 따라까라 비사예 나모스바하
+			\item Om akro tarakara visaye namosvaha
+			\end{itemize}
+
+
+
+
+
+\section{33수. 관세음보살 석장수 진언}
+
+	 		\begin{itemize}
+			\item 언제나 모든 생명체를 해치지 않기를 원할 때
+			\item 옴 날지 날지 날타바지 날제 나야바니 훔 바탁
+			\item 범어 - 옴 날티날티 날타파티 날테 다야빠니 훔파트
+			\item Om nartinarti nartapati narte dayapani humphat
+			\end{itemize}
+
+
+
+
+
+\section{34수. 관세음보살 합장수 진언}
+
+	 		\begin{itemize}
+			\item 모든 존재들이 서로 존중하고 사랑하며 살기를 원할 때
+			\item 옴 바나만 아링하리
+			\item 범어 - 옴 빠드맘 그잘음 흐르
+			\item Om padmam gjalm hr
+			\end{itemize}
+
+
+
+
+
+\section{35수. 관세음보살 화불수 진언}
+
+	 		\begin{itemize}
+			\item 태어날 때마다 부처님 곁을 떠나지 않기를 원할 때
+			\item 옴 전나라 바맘타 이가리 나기리 나기리니 훔 바탁
+			\item 범어 - 옴 짠(찬)다라 바맘따르 까르다끼르 다끼르니 훔파트
+			\item Om candara bhamamtar kardakir dakirni humphat
+			\end{itemize}
+
+
+
+
+
+\section{36수. 관세음보살 화궁전수 진언}
+
+	 		\begin{itemize}
+			\item 태어날 때마다 늘 부처님 세계에서 태어나기를 원할 때
+			\item 옴 미사라 미사라 훔 바탁
+			\item 범어 - 옴 미사라 미사라 훔파트
+			\item Om misara misara humphat
+			\end{itemize}
+
+
+
+
+
+\section{37수. 관세음보살 보경수 진언}
+
+	 		\begin{itemize}
+			\item 두루 널리 공부하여 잊지 않는 총명한 머리 갖기를 원할 때
+			\item 옴 아하라 살바미냐 다라 바니제 사바하
+			\item 범어 - 옴 아하라 사르바 비드야 다라 뿌디떼 스바하
+			\item Om ahara sarva vidya dhara pudite svaha
+			\end{itemize}
+
+
+
+
+
+\section{38수. 관세음보살 불퇴금륜수 진언}
+
+	 		\begin{itemize}
+			\item 지금 이 몸으로 깨닫기 전까지 결코 물러서지 않기를 원할 때
+			\item 옴 서나미자 사바하
+			\item 범어 - 옴 사나미차(짜) 스바하
+			\item Om sanamica svaha
+			\end{itemize}
+
+
+
+
+
+\section{39수. 관세음보살 정상화불수 진언}
+
+	 		\begin{itemize}
+			\item 나도 부처가 되리라는 흔들림 없는 확신을 갖고자 할 때
+			\item 옴 바아라니 바아람예 사바하
+			\item 범어 - 옴 바즈르니 바즈람게에 스바하
+			\item Om vajrni vajramge svaha
+			\end{itemize}
+
+
+
+
+
+\section{40수. 관세음보살 포도수 진언}
+
+	 		\begin{itemize}
+			\item 풍요로운 과실수와 농산물 수확을 얻고자 할 때
+			\item 옴 아마라 검제이니 사바하
+			\item 범어 - 옴 아마라 깜떼디니 스바하
+			\item Om amala kamtedini svaha
+			\end{itemize}
+
+
+
+
+
+\section{41수. 관세음보살 감로수 진언}
+
+	 		\begin{itemize}
+			\item 목마르고 배고픈 모든 중생이 겪는 고통을 없애고자 할 때
+			\item 옴 소로소로 바라소로 바라소로 소로소로야 사바하
+			\item 범어 - 옴 수루수루 보라수루 보라수루 수루수루예 스바하
+			\item Om sulu sulu bholasulu bholasulu sulusuluye svaha
+			\end{itemize}
+
+
+
+
+
+\section{42수. 관세음보살 총섭천비수 진언}
+
+	 		\begin{itemize}
+			\item 어떠한 장애나 역경을 겪어도 반드시 모두 이겨내고자 할 때
+			\item 다냐타 바로기제 새바라야 살바도따 오하야미 사마하
+			\item 범어 - 따다탸 아바로끼데스바라야 싸르바 두시자 우아미예 스바하
+			\item Tadyata avalokitesvaraya sarvadusiZa Uhamiye Svaha
+			\end{itemize}
+
+
+
+ 
+
+% ------------------------------------------------------------------------------
+% End document
+% ------------------------------------------------------------------------------
+\end{document}
+
+
+
+
+			\begin{table} [h]
+	
+			\caption{잔 골재의 표준입도}  
+			\label{tab:title} 
+	
+			\begin{center}
+			\tabulinesep=0.4em
+			\begin{tabu} to 0.8\linewidth { X[r] X[c]  }
+			\tabucline [1pt,] {-}
+			체의 호칭 치수 (mm)		& 체를 통화한 것의 질량 백분율(\%) \\
+			\tabucline [0.1pt,] {-}
+			2.5	&100\\
+			1.2	& 99 $\sim$ 100 \\
+			0.6	& 60 $\sim$ 80 \\
+			0.3	& 20 $\sim$ 50 \\
+			0.15	&  5 $\sim$ 30 \\
+			\tabucline [0.1pt,] {-}
+			\end{tabu} 
+			\end{center}
+			\end{table}
+
